@@ -1,0 +1,66 @@
+VENDING MACHINE
+-----------------------------------------------------------------------------------------------------------
+
+FIRSTLY, CREATE THE USER STORIES
+
+1. The program should display all of the items and their respective prices when the program starts.
+    1.1. Items of stock 0 should not be displayed (get all files and apply a filter)
+
+2. Exit the program
+
+3. Purchase (vend) an item
+    3.1. user must put in some amount of money before an item can be selected
+    3.2. only 1 item can be vended at a time
+    3.3. if inputAmount<itemCost, display message "insufficient funds" and display the inputAmount
+    3.4. if itemSock = 0,
+    3.5. if inputAmount >= itemCost, calculate the dueAmount (inputAmount - itemCost)...then send the dueAmount to Change class, which will send back the change
+3.6 once an item is vended, reduce the itemStock by 1
+
+4. Item stock to be maintained in a file
+     4.1. - whenever the program starts read all Items from file (into a collection) and send it to View
+     4.2. - when the program terminates write all the Items of the collection into the file.
+
+-------------------------------------------------------------------------------------------------------------
+model (contains: private var, constructors, public getters/setters,toString,equals,hashcode)
+          - ItemDTO
+
+dao
+          - ItemDAO (interface - methods)
+          - ItemDAOImpl
+
+service
+          - ItemService
+          - ItemServiceImpl
+
+view / presentation
+-ItemView (class to be created for the pres layer only)
+
+app class - will call the view - VendingMachineMain.java
+
+utility - Change Class (Change class - utility class - just for functionality)
+
+----------------------------------------------------------------------------------------------------------------
+
+1. USER STORIES - they each correspond to a function (or maybe even more than 1)
+2. Identify the entities you need for the project - classes (the nouns)
+
+Item
+-itemId
+-itemName
+-itemCost
+-itemStock
+
+(whichever item is 0 - filter a collection - lambda expression - service layer )
+
+----------------------------------------------------------------------------------------------------------------
+Flow:
+
+Items will be displayed
+Menu
+-----
+1. Vend an Item (fetch a book by id)
+2. Exit the program
++
+File Reading/Writing (The file should have already all the files in it already (manually) - and read the data from there! there is no add an item option)
+
+----------------------------------------------------------------------------------------------------------------

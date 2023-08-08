@@ -1,0 +1,6 @@
+itemId:101,itemName:DoubleTwix,itemCost:200,itemStock:1
+itemId:102,itemName:Mars,itemCost:70,itemStock:10
+itemId:103,itemName:Tayto,itemCost:120,itemStock:12
+itemId:104,itemName:Walkers,itemCost:150,itemStock:5
+itemId:105,itemName:CocaCola,itemCost:200,itemStock:8
+itemId:106,itemName:Fanta,itemCost:160,itemStock:0
