@@ -4,15 +4,18 @@ import dao.ItemDAO;
 import dao.ItemDAOImpl;
 import model.ItemDTO;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class ItemServiceImpl implements ItemService {
 
     //for logic relating to the DB
     ItemDAO itemDao = null;
 
-    public ItemServiceImpl() {
+    public ItemServiceImpl() throws FileNotFoundException,IOException,IOException {
 
         itemDao = new ItemDAOImpl();
     }
@@ -35,14 +38,15 @@ public class ItemServiceImpl implements ItemService {
         List<ItemDTO> filteredItemCollection = new ArrayList<ItemDTO>(displayAllItems());
 
         //filter the collection - whichever itemStock is 0 - lambda expression
-        //boolean isRemoved = filteredItemCollection.removeIf(ItemDTO.getItemStock)-> ItemDTO.getItemStock.equal(0);
+       // boolean isRemoved = filteredItemCollection.removeIf(itemStock) -> itemStock.equal(0);
+      //boolean isFiltered = filteredItemCollection.removeIf(filteredItemCollection.get(i).getItemStock() -> filteredItemCollection.get(i).getItemStock()==0;
 
-     //  boolean isFiltered = filteredItemCollection.removeIf(filteredItemCollection.get(i).getItemStock() -> filteredItemCollection.get(i).getItemStock()==0;
-
+        Predicate<? super ItemDTO> item;
+     //   filteredItemCollection.stream().filter(item) -> item.stemStock() !=0;
 
         //loop through collection
         for (int i = 0; i < filteredItemCollection.size(); i++) {
-            //boolean isFiltered = filteredItemCollection.removeIf(filteredItemCollection.get(i).getItemStock() -> filteredItemCollection.get(i).getItemStock() = 0;
+        ///   boolean isFiltered = filteredItemCollection.removeIf(filteredItemCollection.get(i).getItemStock() -> filteredItemCollection.get(i).getItemStock() = 0;
 
             //if the itemStock is 0 , remove the item from the service layer collection
             if (filteredItemCollection.get(i).getItemStock() == 0) {
@@ -74,8 +78,7 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public boolean writeToFile() {
-
+    public boolean writeToFile() throws IOException{ //propagate exception
         return itemDao.writeToFile();
     }
 

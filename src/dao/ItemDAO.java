@@ -2,6 +2,7 @@ package dao;
 
 import model.ItemDTO;
 
+import java.io.IOException;
 import java.util.List;
 
 public interface ItemDAO {
@@ -10,6 +11,6 @@ public interface ItemDAO {
     List<ItemDTO> displayAllItems();
     ItemDTO vendItem(ItemDTO itemId); // method to vend an item
 
-    boolean writeToFile();
+    boolean writeToFile() throws IOException;
 
 }

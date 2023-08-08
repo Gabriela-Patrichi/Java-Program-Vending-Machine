@@ -5,6 +5,8 @@ import service.ItemService;
 import service.ItemServiceImpl;
 import utility.Change;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.List;
@@ -15,14 +17,25 @@ public class ItemView {
 
     //display all items, filtered
 
-    ItemService myItemService = new ItemServiceImpl();
+    //here, we deal with the propagated exceptions
+    ItemService myItemService;
+
+    {
+        try {
+            myItemService = new ItemServiceImpl();
+        } catch (FileNotFoundException e){
+            System.out.println("Sorry, File Not Found! Please try again.");
+        } catch (IOException e) {
+            System.out.println("Sorry, there was an issue processing that. Please try again!);");
+        }
+    }
 
     public void displayAllItemsFiltered() {
 
         //create a collection to store the retrieved collection
         List<ItemDTO> itemsAvailable = null;
 
-        System.out.println("************************************");
+        System.out.println("************************************************************");
         System.out.println("Items available today:");
 
         //call displayFilteredCollectionOfItems() from Service
@@ -33,7 +46,7 @@ public class ItemView {
         ) {
             System.out.println(item);
         }
-        System.out.println("************************************");
+        System.out.println("************************************************************");
 
     }
 
@@ -69,7 +82,7 @@ public class ItemView {
                         break;
                     }
 
-                    System.out.println("One " + itemToBeVended.getItemName() + " is being vended...");
+                    System.out.println("One " + itemToBeVended.getItemName() + " is being vended...\n");
 
                     // if money is not enough
                     if (itemToBeVended.getItemCost() > insertedAmount) {
@@ -103,7 +116,7 @@ public class ItemView {
                             // and assign its return value to a ItemDTO vendedItem
                             ItemDTO vendedItem = myItemService.vendItem(itemToBeVended);
 
-                            System.out.println("Please collect your " + vendedItem.getItemName());
+                            System.out.println("Done. Please collect your " + vendedItem.getItemName() +".\n");
 
                             // calculate the change due amount
                             int dueAmount = insertedAmount - vendedItem.getItemCost();
@@ -111,7 +124,9 @@ public class ItemView {
 
                             //call calculateChange() from Change class, passing dueAmount as parameter
                             Change.calculateChange(dueAmount);
-                            System.out.println("----------- Thank you for your purchase. Have a nice day! -----------");
+                            System.out.println("*************************************************");
+                            System.out.println("**Thank you for your purchase. Have a nice day!**");
+                            System.out.println("**************************************************");
                             break;
                         }
 
@@ -131,8 +146,12 @@ public class ItemView {
                 case 2:
                     System.out.println("Thank you for using the vending machine.");
                     //write to file
-                    myItemService.writeToFile();
-                    System.out.println("Items data store collection updated.");
+                    try {
+                        myItemService.writeToFile();
+                    } catch (IOException e) {
+                        System.out.println("Sorry, something went wrong when saving data to file. \n Please try again.");
+                    }
+                    System.out.println("Items data store collection updated successfully.");
                     System.exit(0);
 
                 default:

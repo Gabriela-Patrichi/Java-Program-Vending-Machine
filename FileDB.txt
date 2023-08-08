@@ -1,6 +1,6 @@
-itemId:101, itemName:DoubleTwix, itemCost:200, itemStock:1
-itemId:102, itemName:Mars, itemCost:70, itemStock:10
-itemId:103, itemName:Tayto, itemCost:120, itemStock:12
-itemId:104, itemName:Walkers, itemCost:150, itemStock:5
-itemId:105, itemName:CocaCola, itemCost:200, itemStock:8
-itemId:106, itemName:Fanta, itemCost:160, itemStock:0
+Item Id:101, Product:DoubleTwix, Cost:200, Stock:1
+Item Id:102, Product:Mars, Cost:70, Stock:1
+Item Id:103, Product:Tayto, Cost:120, Stock:12
+Item Id:104, Product:Walkers, Cost:150, Stock:5
+Item Id:105, Product:CocaCola, Cost:200, Stock:8
+Item Id:106, Product:Fanta, Cost:160, Stock:0
