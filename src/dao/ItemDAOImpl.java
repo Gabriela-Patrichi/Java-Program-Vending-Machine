@@ -102,6 +102,23 @@ public class ItemDAOImpl implements ItemDAO {
     @Override
     public boolean writeToFile() {
 
-        return false;
+        try {
+            //create a file object
+            File myFile = new File("FileDB.txt");
+
+            //stream - a FileWriter object
+            FileWriter fw = new FileWriter(myFile); //generates exception
+
+            //traverse through the itemsFileDataStore collection and write the String representation of ItemDTO to the file
+            for(ItemDTO eachItem: itemsFileDataStore) {
+                fw.write((eachItem.toString()+ "\n").toCharArray());
+                fw.flush(); //make sure everything is written (flushed) to the file
+            }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return  true;
+
     }
 }

@@ -75,7 +75,8 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     public boolean writeToFile() {
-        return false;
+
+        return itemDao.writeToFile();
     }
 
 }

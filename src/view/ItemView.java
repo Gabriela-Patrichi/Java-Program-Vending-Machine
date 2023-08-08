@@ -129,8 +129,10 @@ public class ItemView {
                     }
 
                 case 2:
-                    System.out.println("Exiting the program...");
+                    System.out.println("Thank you for using the vending machine.");
                     //write to file
+                    myItemService.writeToFile();
+                    System.out.println("Items data store collection updated.");
                     System.exit(0);
 
                 default:
