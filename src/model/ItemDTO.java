@@ -56,9 +56,9 @@ public class ItemDTO {
     @Override
     public String toString() {
         return
-                "Item Id:" + itemId +
-                        ", Product:" + itemName +
-                        ", Cost:" + itemCost +
-                        ", Stock:" + itemStock;
+                "itemId=" + itemId +
+                        ",itemName=" + itemName +
+                        ",itemCost=" + itemCost +
+                        ",itemStock=" + itemStock;
     }
 }

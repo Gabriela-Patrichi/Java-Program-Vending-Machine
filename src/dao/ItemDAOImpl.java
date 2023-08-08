@@ -3,8 +3,6 @@ package dao;
 import model.ItemDTO;
 
 import java.io.*;
-import java.math.BigDecimal;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
@@ -33,7 +31,7 @@ public class ItemDAOImpl implements ItemDAO {
         while (true) {
             if (!((line = br.readLine()) != null)) break;
 
-            StringTokenizer stringToken = new StringTokenizer(line, ":,");
+            StringTokenizer stringToken = new StringTokenizer(line, "=,");
 
             //store each token (a string) in attributes relevant to form a ItemDTO
             stringToken.nextToken();
