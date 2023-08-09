@@ -44,7 +44,6 @@ public class ItemView {
     }
 
     //2. run menu
-
     public void showMenu() {
 
         Scanner input = new Scanner(System.in);
@@ -145,17 +144,6 @@ public class ItemView {
                             break;
                         }
 
-/*
-                        //call calculateChange() from Change class, passing dueAmount as parameter
-                        //store change (to be returned from calculateChange()) in a collection and display to user
-                       // Collection<String, Integer> displayChange =
-
-                        Set<Change.Coins> keys = Change.calculateChange(dueAmount);
-                        // print the keys to the screen
-                        for (Change.Coins k : keys) {
-                            System.out.println( k + keys.get(k));
-                        }
-*/
                     }
                 //User chooses to Exit
                 case 2:
