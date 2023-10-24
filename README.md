@@ -1,7 +1,5 @@
 # Vending-Machine Program
 
-This project's goal is to create a program that simulates a vending machine.
-
 **Project Specifications:**
 - Incorporates solid OOP principles and design: code is organised into well-named classes and logically distributed into the appropriate packages. It incorporates interfaces along with their implementation. DTO/POJO objects are used.
 - Layered architecture, ensuring the separation of concerns. Comprised of model, DAO, view, and service packages.
